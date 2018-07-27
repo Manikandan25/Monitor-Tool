@@ -1,0 +1,263 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+                <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed"
+                                data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                                aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span> <span
+                                        class="icon-bar"></span> <span class="icon-bar"></span> <span
+                                        class="icon-bar"></span>
+                        </button>
+                        <a class= "navbar-brand"href="http://www.dyzaro.com/" id="logo">
+	    			<img src="http://www.dyzaro.com/wp-content/uploads/2016/04/Dyzaro7-1.png" alt="Consulting for Performance Engineering Solutions">
+			</a>
+                </div>
+                <div class="navbar-collapse collapse"
+                        id="bs-example-navbar-collapse-1" aria-expanded="false"
+                        style="height: 1px;">
+                        <ul class="nav navbar-nav navbar-right">
+                                <li><a onclick="logout()" href="" target="_blank">Logout</a></li>
+                        </ul>
+                </div>
+</div>
+</nav>
+
+<div class="container" style="">
+	<div class="col-sm-12 well">
+		Your API Key is: {{apiKey}} <span class="pull-right"
+			style='color: black'>Download master config file <a
+			href="{{configFile}}">{{apiKey}}.conf</a>
+		</span>
+	</div>
+	<div class="col-sm-12">
+		<b>Agents</b>
+		<hr>
+		<button ng-click="show('agentConfig','mac-config')"
+			class="btn btn-link col-sm-2"><img src="img/mac.png"/></button>
+		<button ng-click="show('agentConfig','ubuntu-config')"
+			class="btn btn-link col-sm-2"><img src="img/ubuntu.png"/></button>
+		<button ng-click="show('agentConfig','windows-config')"
+			class="btn btn-link col-sm-2"><img src="img/windows.png"/></button>
+	</div>
+	<br>
+	<div class="col-sm-12">
+		<b>Plugins</b>
+		<hr>
+		<button ng-click="show('pluginConfig','system-config')"
+			class="btn btn-link col-sm-2"><img src="img/windowspc.jpg"/></button>
+		<button ng-click="show('pluginConfig','apache-config')"
+			class="btn btn-link col-sm-2"><img src="img/apache.png"/></button>
+		<button ng-click="show('pluginConfig','docker-config')"
+			class="btn btn-link col-sm-2"><img src="img/docker.png"/></button>
+		<button ng-click="show('pluginConfig','elastic-config')"
+			class="btn btn-link col-sm-2"><img src="img/elastic.png"/></button>
+		<button ng-click="show('pluginConfig','influxdb-config')"
+			class="btn btn-link col-sm-2"><img src="img/influxdb.jpg"/></button>		
+		<button ng-click="show('pluginConfig','jvm-config')"
+                        class="btn btn-link col-sm-2"><img src="img/jvm.jpg"</button>
+		<button ng-click="show('pluginConfig','mongodb-config')"
+			class="btn btn-link col-sm-2"><img src="img/mongodb.png"/></button>
+		<button ng-click="show('pluginConfig','mysql-config')"
+			class="btn btn-link col-sm-2"><img src="img/mysql.png"/></button>
+		<button ng-click="show('pluginConfig','postgresql-config')"
+			class="btn btn-link col-sm-2"><img src="img/postgresql.png"/></button>
+		<button ng-click="show('pluginConfig','ubuntusystem-config')"
+			class="btn btn-link col-sm-2"><img src="img/ubuntusystem.png"/></button>
+	</div>
+	<!-- 	AGENT CONFIGRATION BLOCKS -->
+	<div id="windows-config" class="well agentConfig col-sm-12">
+		<h4>
+			Windows <span ng-click="show('agentConfig','1')"
+				class="close-btn pull-right">X</span>
+		</h4>
+		<div ng-include='"templates/blocks/windowsAgentConfigBlock.html"'></div>
+	</div>
+	<div id="ubuntu-config" class="well agentConfig col-sm-12">
+		<h4>
+			Ubuntu <span ng-click="show('agentConfig','1')"
+				class="close-btn pull-right">X</span>
+		</h4>
+		<div ng-include='"templates/blocks/ubuntuAgentConfigBlock.html"'></div>
+	</div>
+	<!-- 	PLUGIN CONFIGRATION BLOCKS -->
+	<div id="apache-config" class="well pluginConfig col-sm-12">
+		<h4>
+			Apache<span ng-click="show('pluginConfig','1')"
+				class="close-btn pull-right">X</span>
+		</h4>
+		<button data-toggle="modal" data-target="#myModal"
+			class="btn btn-link" ng-click="showDashboard('apache')"
+			href="{{dashboardPrefix}}{{apiKey}}-'apache'?theme=light">Show
+			Apache dashboard</button>
+		<button ng-click="createDashboard('apache')" class="btn btn-link">Create
+			dashboard</button>
+		Copy paste the following scripts in {{apiKey}}.conf file
+		<div ng-include='"templates/blocks/apacheConfigBlock.html"'></div>
+	</div>
+	<div id="system-config" class="well pluginConfig col-sm-12">
+		<h4>
+			Windows PC<span ng-click="show('pluginConfig','1')"
+				class="close-btn pull-right">X</span>
+		</h4>
+		<button data-toggle="modal" data-target="#myModal"
+			class="btn btn-link" ng-click="showDashboard('windows-system')"
+			href="{{dashboardPrefix}}{{apiKey}}-windows-system?theme=light">Show
+			CPU dashboard</button>
+		<button ng-click="createDashboard('windows-system')"
+			class="btn btn-link">Create/Update dashboard</button>
+		Copy paste the following scripts in {{apiKey}}.conf file
+		<div ng-include='"templates/blocks/systemConfigBlock.html"'></div>
+	</div>
+	<div id="mongodb-config" class="well pluginConfig col-sm-12">
+		<h4>
+			Mongodb<span ng-click="show('pluginConfig','1')"
+				class="close-btn pull-right">X</span>
+		</h4>
+		<button data-toggle="modal" data-target="#myModal"
+			class="btn btn-link" ng-click="showDashboard('mongodb')"
+			href="{{dashboardPrefix}}{{apiKey}}-mongodb?theme=light">Show
+			MongoDB dashboard</button>
+		<button ng-click="createDashboard('mongodb')" class="btn btn-link">Create
+			dashboard</button>
+		Copy paste the following scripts in {{apiKey}}.conf file
+		<div ng-include='"templates/blocks/mongodbConfigBlock.html"'></div>
+	</div>
+	<div id="ubuntusystem-config" class="well pluginConfig col-sm-12">
+		<h4>
+			Ubuntu-System<span ng-click="show('pluginConfig','1')"
+				class="close-btn pull-right">X</span>
+		</h4>
+		<button data-toggle="modal" data-target="#myModal"
+			class="btn btn-link" ng-click="showDashboard('ubuntusystem')"
+			href="{{dashboardPrefix}}{{apiKey}}-ubuntusystem?theme=light">Show
+			System dashboard</button>
+		<button ng-click="createDashboard('ubuntusystem')" class="btn btn-link">Create
+			dashboard</button>
+		Copy paste the following scripts in {{apiKey}}.conf file
+		<div ng-include='"templates/blocks/ubuntuSystemConfigBlock.html"'></div>
+	</div>
+	<div id="elastic-config" class="well pluginConfig col-sm-12">
+		<h4>
+			Elasticsearch<span ng-click="show('pluginConfig','1')"
+				class="close-btn pull-right">X</span>
+		</h4>
+		<button data-toggle="modal" data-target="#myModal"
+			class="btn btn-link" ng-click="showDashboard('elasticsearch')"
+			href="{{dashboardPrefix}}{{apiKey}}-elasticsearch?theme=light">Show
+			Elasticsearch dashboard</button>
+		<button ng-click="createDashboard('elasticsearch')" class="btn btn-link">Create
+			dashboard</button>
+		Copy paste the following scripts in {{apiKey}}.conf file
+		<div ng-include='"templates/blocks/elasticsearchConfigBlock.html"'></div>
+	</div>
+	<div id="influxdb-config" class="well pluginConfig col-sm-12">
+		<h4>
+			Influxdb<span ng-click="show('pluginConfig','1')"
+				class="close-btn pull-right">X</span>
+		</h4>
+		<button data-toggle="modal" data-target="#myModal"
+			class="btn btn-link" ng-click="showDashboard('influxdb')"
+			href="{{dashboardPrefix}}{{apiKey}}-influxdb?theme=light">Show
+			Influxdb dashboard</button>
+		<button ng-click="createDashboard('influxdb')" class="btn btn-link">Create
+			dashboard</button>
+		Copy paste the following scripts in {{apiKey}}.conf file
+		<div ng-include='"templates/blocks/influxdbConfigBlock.html"'></div>
+	</div>
+	<div id="mysql-config" class="well pluginConfig col-sm-12">
+		<h4>
+			Mysql<span ng-click="show('pluginConfig','1')"
+				class="close-btn pull-right">X</span>
+		</h4>
+		<button data-toggle="modal" data-target="#myModal"
+			class="btn btn-link" ng-click="showDashboard('mysql')"
+			href="{{dashboardPrefix}}{{apiKey}}-mysql?theme=light">Show
+			Mysql dashboard</button>
+		<button ng-click="createDashboard('mysql')" class="btn btn-link">Create
+			dashboard</button>
+		Copy paste the following scripts in {{apiKey}}.conf file
+		<div ng-include='"templates/blocks/mysqlConfigBlock.html"'></div>
+	</div>
+		<div id="docker-config" class="well pluginConfig col-sm-12">
+		<h4>
+			Docker<span ng-click="show('pluginConfig','1')"
+				class="close-btn pull-right">X</span>
+		</h4>
+		<button data-toggle="modal" data-target="#myModal"
+			class="btn btn-link" ng-click="showDashboard('docker')"
+			href="{{dashboardPrefix}}{{apiKey}}-docker?theme=light">Show
+			Docker dashboard</button>
+		<button ng-click="createDashboard('docker')" class="btn btn-link">Create
+			dashboard</button>
+		Copy paste the following scripts in {{apiKey}}.conf file
+		<div ng-include='"templates/blocks/dockerConfigBlock.html"'></div>
+	</div>
+	<div id="postgresql-config" class="well pluginConfig col-sm-12">
+		<h4>
+			Postgresql<span ng-click="show('pluginConfig','1')"
+				class="close-btn pull-right">X</span>
+		</h4>
+		<button data-toggle="modal" data-target="#myModal"
+			class="btn btn-link" ng-click="showDashboard('postgresql')"
+			href="{{dashboardPrefix}}{{apiKey}}-postgresql?theme=light">Show
+			Postgresql dashboard</button>
+		<button ng-click="createDashboard('postgresql')" class="btn btn-link">Create
+			dashboard</button>
+		Copy paste the following scripts in {{apiKey}}.conf file
+		<div ng-include='"templates/blocks/postgresqlConfigBlock.html"'></div>
+	</div>
+	<div id="influxdb-config" class="well pluginConfig col-sm-12">
+                <h4>
+                    	Influx<span ng-click="show('pluginConfig','1')"
+                                class="close-btn pull-right">X</span>
+                </h4>
+                <button data-toggle="modal" data-target="#myModal"
+                        class="btn btn-link" ng-click="showDashboard('influxdb')"
+                        href="{{dashboardPrefix}}{{apiKey}}-influxdb?theme=light">Show
+                        Influxdb dashboard</button>
+                <button ng-click="createDashboard('influxdb')" class="btn btn-link">Create
+                        dashboard</button>
+                Copy paste the following scripts in {{apiKey}}.conf file
+                <div ng-include='"templates/blocks/influxdbConfigBlock.html"'></div>
+	</div>
+	<div id="jvm-config" class="well pluginConfig col-sm-12">
+                <h4>
+                        JVM<span ng-click="show('pluginConfig','1')"
+                                class="close-btn pull-right">X</span>
+                </h4>
+                <button data-toggle="modal" data-target="#myModal"
+                        class="btn btn-link" ng-click="showDashboard('jvm')"
+                        href="{{dashboardPrefix}}{{apiKey}}-jvm?theme=light">Show
+                        JVM dashboard</button>
+                <button ng-click="createDashboard('jvm')" class="btn btn-link">Create
+                        dashboard</button>
+                Copy paste the following scripts in {{apiKey}}.conf file
+                <div ng-include='"templates/blocks/jvmConfigBlock.html"'></div>
+        
+        </div>
+
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog" style="height: 100%; width: 100%;">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header" style="">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">{{modalHeaderTitle}}</h4>
+			</div>
+			<div class="modal-body">
+				<iframe id="grafaDashboard" scrolling="yes" allowfullscreen src=""></iframe>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+        function logout() {
+                localStorage.removeItem("token");
+                window.location.href = "#";
+        }
+</script>
+

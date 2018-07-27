@@ -1,0 +1,38 @@
+
+<body>
+<div ng-include='"templates/common/menuBar.html"'></div>
+<div class="col-lg-12"  id="totalproduct">
+  <div class="col-lg-3"   >
+  <table style="width:350%">
+  
+  <tr>
+  	<th>ProductId</th>
+  	<th>ProductCategory</th>
+  	<th>Price</th>
+  	<th>ViewCount</th>
+  	</tr>
+<tr ng-repeat="x in names | orderBy:'-count'"  ng-click="change( x.id )" >
+      <td>{{x.id }}</td>
+      <td>{{x.product_category  }}</td>
+      <td>{{x.price }}</td>
+      <td>{{x.count }}</td>
+   </tr>
+
+</table>
+  <style>
+table, th , td {
+  border: 0px solid gray;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+  
+  </div>
+</div>
+</body>

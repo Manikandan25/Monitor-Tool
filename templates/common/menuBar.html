@@ -1,0 +1,23 @@
+<div class="menuBar col-sm-12"
+	style="background-color: rgb(250, 250, 250); top:">
+	<!-- <button class="btn btn-link">Products</button>
+	<button class="btn btn-link">Impressions</button>
+	<button class="btn btn-link">Events</button>
+	<button class="btn btn-link">Settings</button>
+	<button class="btn btn-link pull-right">{{clientId}}</button> -->
+	<ul class="nav nav-tabs">
+	  <li><button class="btn btn-link">Clients</button></li>
+	  <li><button class="btn btn-link">Analytics</button></li>
+	  <li><button class="btn btn-link">Settings</button></li>
+
+	  <li class="dropdown pull-right">
+			<img src="images/user.png" width="30"/>
+			<button class="btn btn-link dropdown-toggle" data-toggle="dropdown">{{clientId}}</button>
+	    <ul class="dropdown-menu">
+	      <li><a data-toggle="tab" ng-click="logout()">Logout</a></li>
+	      <!-- <li class="divider"></li>
+	      <li><a data-toggle="tab">Another action</a></li> -->
+	    </ul>
+	  </li>
+	</ul>
+ </div>

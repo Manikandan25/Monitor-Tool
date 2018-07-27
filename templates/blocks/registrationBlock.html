@@ -1,0 +1,31 @@
+<form class="bs-component form-horizontal"
+	ng-controller="homePageController" method="post">
+	<div class="form-group">
+		<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+		<div class="col-sm-8">
+			<input id="email" type="email" name="email" ng-model="newEmail"
+				class="col-sm-12  form-control" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputEmail" class="col-lg-2 control-label">Password</label>
+		<div class="col-sm-8">
+			<input id="password" type="password" name="password"
+				ng-model="newPassword" class="col-sm-12  form-control" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputEmail" class="col-lg-2 control-label">Confirm
+			Password</label>
+		<div class="col-sm-8">
+			<input id="password" type="password" ng-model="confirmPassword"
+				class="col-sm-12  form-control" required>
+		</div>
+	</div>
+	<button class="col-sm-2 col-lg-offset-1 btn btn-primary btn-small"
+		id="registrationButton" ng-click="registration()">Submit</button>
+	<button class="btn btn-link"
+		ng-click="show('loginBlock','registrationBlock')">Having
+		account? Login</button>
+</form>
+</body>

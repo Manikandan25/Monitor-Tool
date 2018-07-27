@@ -1,0 +1,26 @@
+
+<!-- LOGIN BLOCK -->
+<form class="well bs-component form-horizontal"
+	ng-controller="homePageController">
+	<div class="form-group">
+		<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+		<div class="col-sm-4">
+			<input type="text" class="col-sm-12  form-control"
+				ng-model="username" placeholder="Email" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputEmail" class="col-lg-2 control-label">Password</label>
+		<div class="col-sm-4">
+			<input type="password" class="col-sm-12 form-control"
+				ng-model="password" placeholder="Password" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<button class="col-sm-2 col-lg-offset-1 btn btn-primary btn-small"
+			id="loginButton" ng-click="login()">Log in</button>
+		<button class="btn btn-link"
+			ng-click="show('registrationBlock','loginBlock')">Not having
+			account? Register</button>
+	</div>
+</form>

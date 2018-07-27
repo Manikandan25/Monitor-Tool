@@ -1,0 +1,19 @@
+<div id="bgtrig"></div>
+<div ng-controller="homePageController">
+	<div class="container">
+		<h1>Performance Engineering Management</h1>
+		<h3>Where application performance is Business performance</h3>
+		<hr>
+		<div class="errorBlock" style="display: none" class="bs-component">
+			<div class="alert alert-dismissible alert-danger">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<b><span class="errorMessage"></span></b>
+			</div>
+			<div id="source-button" class="btn btn-primary btn-xs"
+				style="display: none;">&lt; &gt;</div>
+		</div>
+		<div id="loginBlock" ng-include='"templates/blocks/loginBlock.html"'></div>
+		<div style="display: none" id="registrationBlock"
+			ng-include='"templates/blocks/registrationBlock.html"'></div>
+	</div>
+</div>

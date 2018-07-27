@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="aptPanel" lang="en-US">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/gif/png" href="images/whirldata.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<title>Dyzaro</title>
+<body>
+	<div ng-include='"templates/common/header.html"'></div>
+	<div class="">
+		<div ng-view></div>
+	</div>
+	<div ng-include='"templates/common/footer.html"'></div>
+</body>
+<!--  INCLUDING THE BASIC JS FOR ANGULAR -->
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular148/angular.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script> -->
+<script src="js/angular-route.min.js"></script>
+<!-- CONTROLLERS AND CONFIGURATIONS FOR THE APP -->
+<script>
+	var host = "http://" + window.location.host + "/dyzaro";
+	apiUrl = host + "/api/index.php";
+</script>
+<script src="js/aptPanel/config.js"></script>
+<script src="js/aptPanel/controllers/homePageController.js"></script>
+<script src="js/aptPanel/controllers/dashboardController.js"></script>
+<script src="js/aptPanel/controllers/productController.js"></script>
+<script src="js/aptPanel/controllers/productGraph.js"></script>
+<script src="js/aptPanel/controllers/orderController.js"></script>
+<!-- <script -->
+<!-- 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<script src="js/project.js"></script>
+</html>
